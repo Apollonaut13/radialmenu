@@ -2,18 +2,18 @@ class Segment
 {
   PVector a = new PVector(0,0);
   PVector b = new PVector(0,0);
-  float sa, ea;
+  float start, end;
   float r;
   Segment(float startAngle, float endAngle, float radius)
   {
-    sa = startAngle;
-    ea = endAngle;
+    start = startAngle;
+    end = endAngle;
     assignAB();
     r = radius;
   }
   void show()
   {
-    arc(centerX, centerY, r*2, r*2, sa, ea);
+    arc(centerX, centerY, r*2, r*2, start, end);
     assignAB();
     line(centerX, centerY, a.x, a.y);
     line(centerX, centerY, b.x, b.y);
@@ -21,9 +21,9 @@ class Segment
   
   void assignAB()
   {
-    a.x = centerX + r * cos(sa);
-    a.y = centerY + r * sin(sa);
-    b.x = centerX + r * cos(ea);
-    b.y = centerY + r * sin(ea);
+    a.x = centerX + r * cos(start);
+    a.y = centerY + r * sin(start);
+    b.x = centerX + r * cos(end);
+    b.y = centerY + r * sin(end);
   }
 }
